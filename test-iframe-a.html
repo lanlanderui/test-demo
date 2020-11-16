@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test-iframe-a</title>
+    <style>
+        body {
+             width: 599px;
+             margin: 0 auto;
+             /* text-align: center; */
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        iframe 嵌套页面-HTML5 不支持 iframe  marginheight 属性。请使用 CSS 代替，marginheight 属性规定 iframe内容的顶部和底部的空白边距，以像素计。
+    </h2>
+     右边是iframe嵌入的html<iframe src="test-iframe2.html" frameborder="1" name="baidu">你好</iframe>
+    <br>
+     <a href="http://www.qq.com" target="baidu">iframe打开qq</a>
+    <br>
+
+    <h2>html中的a标签</h2>
+    <p>target属性</p>
+    <p><a href="http://www.qq.com" target="_blank">_blank新窗口里打开qq.com</a></p>
+    <p><a href="http://www.qq.com" target="_parent">_parent在父窗口里打开qq.com,请看iframe窗口</a></p>
+    <p><a href="http://www.qq.com" target="_self">_self当前窗口里打开qq.com</a></p>
+    <p><a href="http://www.qq.com" target="_top">在最顶层的窗口打开？！</a></p>
+
+    <h2>download属性</h2>
+    什么时候download由http响应决定,content-type:application/octet-stream,则浏览器会以下载的形式接受这个请求
+    <br>如果响应是content-type: text/html还想下载用download属性强制下载，！所以有时候你会看到这样的一句话：如果没有自动开始下载，<a href="javascript:;">请点我</a> 
+
+    <p>href</p>
+    a标签的href属性
+    <pre> 
+        <b style="font-size: 18px;">
+        1.无协议的绝对地址  //qq.com  （根据当前协议）
+
+        2.  ?name=mike    暂时不知道有什么用
+         <a href="?name=mike">href="?name=mike" 发起一个get?name=mike请求</a>
+
+         ./xxx.html
+         <a href="test-iframe2.html">相对路径</a>
+
+        #锚点  href="#"  回到最顶部  只有锚点是不发起请求的
+        <a href="#">回到最顶部啦</a>
+
+        3.  javascript伪协议
+            javascript:alert(l);  
+            javascript:;常用来实现 点击后什么都不做的要求
+         <a href="javascript: alert('伪装的协议');">javascript: alert(伪装的协议)</a>   
+         </b> 
+    </pre>
+</body>
+</html>
