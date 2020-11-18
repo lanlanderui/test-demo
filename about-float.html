@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aboutfloat</title>
+    <style>
+        .test-box {
+            max-width: 800px;
+        }
+        .float-left {
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <h1>float的原本作用</h1>
+    <p>实现文字环绕效果</p>
+    <div class="test1-box">
+        <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1975578538,966652382&fm=26&gp=0.jpg" alt="鲁迅散文集" class="float-left">
+        <p>《从百草园到三味书屋》是鲁迅于1926年写的一篇童年妙趣生活的回忆性散文，此文被收入《朝花夕拾》。
+            全文描述了色调不同，情韵各异的两大景片：百草园和三味书屋。作者写百草园，以“乐”为中心，以简约生动的文字，描绘了一个奇趣无穷的儿童乐园，其间穿插“美女蛇”的传说和冬天雪地捕鸟的故事，动静结合，详略得当，趣味无穷。
+            三味书屋则是一个完全不同的世界，作者逼真地写出了三味书屋的陈腐味，说它是“全城中称为最严厉的书塾”，儿童在那里受到规矩的束缚。
+            但作者并未将三味书屋写得死气沉沉，而是通过课间学生溜到后园嬉耍，老私塾先生在课堂上入神读书学生乘机偷乐两个小故事的叙述，使三味书屋充满了谐趣，表现了儿童不可压抑的快乐天性。该散文入选2018年版初中语文，人民教育出版社七年级（上册）。</p>
+    
+    </div>
+    <h1>清楚浮动带来的影响</h1>
+    <pre>
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </pre>
+ </body>
+</html>
