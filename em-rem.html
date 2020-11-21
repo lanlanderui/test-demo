@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>em-rem</title>
+    <style>
+        .main {
+            margin: 100px auto 0px;
+            width: 1000px;
+            height: 500px;
+            background-color: #f6f6f6;
+            box-shadow: 2px 2px 5px rgb(131, 131, 131,.3);
+        }
+
+
+        .em {
+            font-size: 10px;
+
+
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            display:inline-block;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .em .txt {
+            width: 2em;
+            height: 2em;
+            /* 2em即使两倍父盒子字体大小  即是2em=2*10px=20px */
+            background-color: rgb(248, 121, 98);
+        }
+        /* --------------------------------------------------------------------- */
+        html {
+            font-size: 20px;
+        }
+        .rem {
+            width: 10rem;
+            height: 10rem;
+            font-size: .7rem;
+            background-color: rgb(160, 250, 199);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="em">
+            em的基准是父盒子的字体大小                                            <br>
+            现在粉盒子字体大小为10px                                              <br>
+            子级（下面橙色的小盒子）大小设置为2em，则她的宽长是2*10px=20px！
+            <div class="txt"></div>
+        </div>
+        <div class="rem">
+            rem的基准是相对于html元素的字体大小                                    <br>
+            当前html的font-size: 20px;                                           <br>
+            这个绿盒子长宽都为 10rem                                              <br>
+            即是 10*20=200
+        </div>
+    </div>
+</body>
+</html>
