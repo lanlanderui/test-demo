@@ -3,83 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>position</title>
+    <title>position-demo2</title>
     <style>
-        .main {
-            margin: 100px auto 0px;
-            width: 1000px;
-            height: 1500px;
-            background-color: #f6f6f6;
-            box-shadow: 2px 2px 5px rgb(131, 131, 131,.3);
+        body {
+            background-color: #8e8e8f;
         }
-        h1 {
-            margin-top: 20px;
-            width: 20%;
+        * {
+            margin: 0;padding: 0;
         }
-        h1:hover {
-            animation: bgc 1s;
-            animation-fill-mode:forwards;
+        ul {
+            list-style: none;
+        }
+        ul li {
+        padding-top: 5px;
+    }
+        .box {
+            margin: 100px auto;
+            width: 50%;
+            min-width: 380px;
+            box-shadow: 2px 2px 5px rgb(131, 131, 131,.6);
         }
 
-        @keyframes bgc
-        {
-            from{background-color: #e4e4e4; width: 20%;}
-            to{background-color:rosybrown;width: 100%;}
+        .box .title {
+            background-color: rgb(254, 67, 101);
+            margin: 0;
+            padding: 10px;
+            color: #fff;
+
         }
+        .box-item-content {
+            height: 0px;
+            overflow: hidden;
+            margin: 0;
+            padding-left: 20px;
+            background-color: rgb(243, 223, 209);
+            transition: .5s;
+           
+        }
+        .box-item-content li {
+            margin-top: 10px;
+            color: teal;
+            font-size: 14px;
+        }
+        /* 接下来是最关键的一步 */
+        .box:hover .box-item:hover .box-item-content {
+            height:250px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="main">
-        <h1 class="static">静态定位</h1>
-        <p>一个元素默认情况下是静态定位，是position的默认属性值</p>
-
-        <h1 class="relative">相对定位</h1>
-        <ul>
-            <li>移动的时候是以自身原来的位置为参照点</li>
-            <li>继续保留原来的位置，不脱标</li>
-            <li>一般加到绝对定位的父盒子上</li>
-        </ul>
-
-        <h1>绝对定位</h1>
-        <ul>
-            <li>相对于他的祖先元素来移动</li>
-            <li>如果没有祖先元素或祖先元素没有定位，则以浏览器为准（doc文档）</li>
-            <li>如果祖先元素有定位（相对，绝对，固定），则以最近一级的有定位的祖先元素为参考点移动、如果爸爸没有定位，爷爷有定位则跟着爷爷定位</li>
-            <li>绝对定位不占有原来的位置</li>
-            <li>绝对定位的父盒子一般为相对定位</li>
-        </ul>
-        <p>子绝父相的使用场景</p>
-        <span>1、子级绝对定位，不会占有位置，可以放到父盒子里面的任何一个地方，不会影响其他的兄弟盒子。
-            2、父盒子需要加定位限制子盒子在父盒子内显示
-            3、父盒子布局时，需要占有位置，因此父亲只能是相对定位，所以子绝父相</span>
-        <p>绝对定位的盒子居中</p>
-        <span>left50%然后margin移动自身宽度的一半</span>
-
-        <h1>固定定位</h1>
-        <p>以浏览器可视区域为参照点 与父元素无关 不随滚动条滚动</p>
-        <span>固定定位不在占有原先的位置，可以看成特殊的绝对定位。脱标
-            小技巧固定在版心的右侧显示
-            left：50%；margin-left：版心盒子的一半</span>
-
-        <h1>粘性定位</h1>
-        <pre>
-            1，以浏览器的可视窗口为参照
-            2，占有原来的位置，不脱标
-            3、必须添加top，left。right。bottom其中一个才有效
-            top：0px；
-            设置后当盒子距离浏览器窗口距离为0的时候就变成固定定位的样子
-        </pre>
-
-        <h1>其他</h1>
-        <pre>绝对定位，固定定位后
-            行内元素添加绝对或者固定定位，可以直接设置高度和宽度
-            块级元素添加绝对或者固定定位，如果不给宽度或者高度，默认大小是内容的大小
-            ！都变成了inline-block了嘛
-            浮动元素，绝对定位（固定定位）元素的都不会触发外边距合并的问题
-            绝对定位（固定定位）会完全压住盒子（不管是文字还是图片都会压住）
-            但是浮动元素不同，只会压住它下面标准流的盒子，但是不会压住下面标准流盒子里面的文字（图片），
-            之所以不会压住文字和图片，是因为浮动最初的目的就是文字环绕效果的
-        </pre>
+    <div class="box">
+            <div class="box-item">
+                <h1 class="title">静态定位 static</h1>
+                <ul class="box-item-content">
+                    <li>一个元素默认情况下是静态定位，是position的默认属性值</li>
+                </ul>
+            </div>
+            <div class="box-item">
+                <h1 class="title">相对定位 relative</h1>
+                <ul class="box-item-content">
+                    <li>移动的时候是以自身原来的位置为参照点</li>
+                    <li>继续保留原来的位置，不脱标</li>
+                    <li>一般加到绝对定位的父盒子上</li>
+                </ul>
+            </div>
+            <div class="box-item">
+                <h1 class="title">绝对定位 absolute</h1>
+                <ul class="box-item-content">
+                    <li>相对于他的祖先元素来移动</li>
+                    <li>如果没有祖先元素或祖先元素没有定位，则以浏览器为准（doc文档）</li>
+                    <li>如果祖先元素有定位（相对，绝对，固定），则以最近一级的有定位的祖先元素为参考点移动</li>
+                    <li>如果爸爸没有定位，爷爷有定位则跟着爷爷定位</li>
+                    <li>绝对定位不占有原来的位置</li>
+                    <li>绝对定位的父盒子一般为相对定位</li>
+                </ul>
+            </div>
+            <div class="box-item">
+                <h1 class="title">子绝父相的使用场景</h1>
+                <ul class="box-item-content">
+                    <li>子级绝对定位，不会占有位置，可以放到父盒子里面的任何一个地方，不会影响其他的兄弟盒子</li>
+                    <li>父盒子需要加定位限制子盒子在父盒子内显示</li>
+                    <li>父盒子布局时，需要占有位置，因此父亲只能是相对定位，所以子绝父相</li>
+                    <li>绝对定位的盒子居中:left50%然后margin移动自身宽度的一半</li>
+                </ul>
+            </div>
+            <div class="box-item">
+                <h1 class="title">固定定位 fixed</h1>
+                <ul class="box-item-content">
+                    <li> 以浏览器可视区域为参照点 与父元素无关 不随滚动条滚动</li>
+                    <li>固定定位不在占有原先的位置，可以看成特殊的绝对定位。</li>
+                    <li> 小技巧固定在版心的右侧显示left：50%；margin-left：版心盒子的一半</li>
+                </ul>
+            </div>
+            <div class="box-item">
+                <h1 class="title">粘性定位 sticky</h1>
+                <ul class="box-item-content">
+                    <li>以浏览器的可视窗口为参照</li>
+                    <li>占有原来的位置，不脱标</li>
+                    <li>必须添加top，left。right。bottom其中一个才有效</li>
+                    <li>top：0px；设置后当盒子距离浏览器窗口距离为0的时候就变成固定定位的样子</li>
+                </ul>
+            </div>
+            <div class="box-item">
+                <h1 class="title">拓展</h1>
+                <ul class="box-item-content">
+                    <li>行内元素添加绝对或者固定定位，可以直接设置高度和宽度</li>
+                    <li> 块级元素添加绝对或者固定定位，如果不给宽度或者高度，默认大小是内容的大小</li>
+                    <li>浮动元素，绝对定位（固定定位）元素的都不会触发外边距合并的问题v</li>
+                    <li>绝对定位（固定定位）会完全压住盒子（不管是文字还是图片都会压住）</li>
+                    <li> 但是浮动元素不同，只会压住它下面标准流的盒子，但是不会压住下面标准流盒子里面的文字（图片）</li>
+                    <li>之所以不会压住文字和图片，是因为浮动最初的目的就是文字环绕效果的</li>
+                </ul>
+            </div>
     </div>
 </body>
 </html>
